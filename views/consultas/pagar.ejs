@@ -1,0 +1,47 @@
+<!-- HEADER -->
+<%- include ../layouts/header.ejs %>    
+        
+<% if (messages.error) { %>
+    <p style="color:red"><%- messages.error %></p>
+<% } %>
+ 
+<% if (messages.success) { %>
+    <p style="color:green"><%- messages.success %></p>
+<% } %>
+
+<!--PEQUENHO ESTILO-->
+<style>
+    .texto { color: #FFFFFF; font-size: 16pt; }
+</style>
+<!-- INICIO CUERPO -->
+
+<div class="clear"></div>
+<h1>ESTUDIO DIAGNOSTICADO</h1>
+
+<div class="register-form-w3layouts">
+    <!-- input hidden con el codigo del estudio para descargar-->
+    <h3 class="sub-heading-agileits">INSTRUCCIONES</h3>
+    <div class="field-agileinfo-spc form-w3-agile-text1">
+        <h6 class="texto">El estudio se diagnosticó exitosamente, Favor abonar para descargar el reporte final</h6>
+        <h6 class="texto">Para abonar, tiene las siguientes opciones:</h6>
+        <h6 class="texto">- Giros Tigo al nro </h6>
+        <h6 class="texto">- Transferencia a la cuenta </h6>
+        <h6 class="texto">- Pago a traves de BANCARD </h6>
+    </div>
+    <div>
+        <h6 class="texto">Una vez confirmado el pago, se activa el boton para descarga: </h6>     
+        <form action="/consultas/final" method="get" name="form">
+            <input type="hidden" name="cod" id="cod" value="<%= data[0].cod %>" readonly/>
+            <!--MOSTRAMOS SOLO SI YA SE PAGO-->
+            <% if (data[0].estado == "PAGADO") { %>
+            <input type="submit" name="Submit" value="Descargar Estudio Diagnosticado"/></td>
+            <% } %>
+        </form>
+    </div>
+    <div class="clear"></div>
+
+</div>   
+
+<!-- FIN CUERPO -->
+<!--INCLUI FOOTER-->
+<%- include ../layouts/footer.ejs %>

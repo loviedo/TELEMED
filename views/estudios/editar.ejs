@@ -1,0 +1,68 @@
+<!-- HEADER -->
+<%- include ../layouts/header.ejs %>    
+        
+<% if (messages.error) { %>
+    <p style="color:red"><%- messages.error %></p>
+<% } %>
+ 
+<% if (messages.success) { %>
+    <p style="color:green"><%- messages.success %></p>
+<% } %>
+ 
+
+<h1>Edicion de diagnostico de Estudio</h1>
+<!-- AQUI DESCARGAMOS EL ARCHIVO -->
+<div class="register-form-w3layouts">
+    <form action="/estudios/descargar" method="get" name="form2">
+        <input type="hidden" name="cod" id="cod" value="<%= data.cod %>" readonly/>
+        <div class="clear"></div>
+        <input type="submit" name="Submit" value="Descargar Estudio" /></td>
+    </form>
+</div>
+
+<div class="register-form-w3layouts">
+    <form action="/estudios/editar/<%= data.id %>" method="POST" name="form1">
+        <h3 class="sub-heading-agileits">DATOS ESTUDIO</h3>
+        <div class="main-flex-w3ls-sectns">
+            <div class="field-agileinfo-spc form-w3-agile-text1">
+                <label>CODIGO ESTUDIO</label>
+                <input type="text" name="cod" id="cod" value="<%= data.cod %>" readonly/>
+            </div>
+            <div class="field-agileinfo-spc form-w3-agile-text2">
+                    <label>FECHA ESTUDIO</label>
+                    <input type="text" name="fec_estudio" value="<%= data.fec_estudio %>" readonly/>
+            </div>
+        </div>
+        <div class="main-flex-w3ls-sectns">
+            <div class="field-agileinfo-spc form-w3-agile-text2">
+                <label>NOMBRES</label>
+                <input type="text" name="CI" value="<%= data.nombre %>" readonly/>
+            </div>
+            <div class="field-agileinfo-spc form-w3-agile-text1">
+                <label>APELLIDOS</label>
+                <input type="text" name="APELLIDO" value="<%= data.apellido %>" readonly/>
+            </div>
+        </div>
+        <div class="main-flex-w3ls-sectns">
+            <div class="field-agileinfo-spc form-w3-agile-text2">
+                <label>MOTiVO ESTUDIO</label>
+                <input type="text" name="CI" value="<%= data.mot_est %>" readonly/>
+            </div>
+            <div class="field-agileinfo-spc form-w3-agile-text1">
+                <label>CENTRO DE ESTUDIO</label>
+                <input type="text" name="APELLIDO" value="<%= data.lugar_est %>" readonly/>
+            </div>
+        </div>
+        <div class="field-agileinfo-spc form-w3-agile-text1">
+            <label>DIAGNOSTICO</label>
+            <textarea name="diagnostico" value="<%= data.diagnostico %>" rows="10"/><%= data.diagnostico %></textarea>
+        </div>
+        <div class="clear"></div>
+        <input type="submit" name="Submit" value="Actualizar" /></td>
+        <div class="clear"></div>
+    </form>
+</div>
+
+
+<!--INCLUI FOOTER-->
+<%- include ../layouts/footer.ejs %>

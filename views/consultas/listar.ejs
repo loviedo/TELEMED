@@ -1,0 +1,82 @@
+<!-- HEADER -->
+<%- include ../layouts/header.ejs %>    
+        
+<% if (messages.error) { %>
+    <p style="color:red"><%- messages.error %></p>
+<% } %>
+ 
+<% if (messages.success) { %>
+    <p style="color:green"><%- messages.success %></p>
+<% } %>
+
+<!-- INICIO CUERPO -->
+<!-- LISTAR INFORMACION RECUPERADA -->
+<h1>Informacion del estudio</h1>
+<!-- input hidden con el codigo del estudio para descargar-->
+<input type="input" name="cod" id="cod" value="<%= data[0].cod %>" readonly/>
+<div class="register-form-w3layouts">
+    <div class="main-flex-w3ls-sectns">
+        <table class="table table-hover" width='80%' border=0>
+            <tr style='text-align:center; background-color:rgba(204, 204, 204, 0.651)'>
+                <th>Nro</th>
+                <th>CODIGO</th>
+                <!--<th>C.I.</th>-->
+                <th>NOMBRE</th>
+                <th>APELLIDO</th>
+                <th>Fecha estudio</th>
+                <th>ESTADO</th>
+                <!--<th>TELEFONO</th>-->
+                <th>Acciones</th>
+            </tr>
+            <!-- loop para listar los datos -->
+            <% if(data) { %>
+                <% data.forEach(function(estudio){ %>
+                    <tr>
+                        <td><%= estudio.id %></td>
+                        <td><%= estudio.cod %></td>
+                        <!--<td><%= estudio.ci %></td>-->
+                        <td><%= estudio.nombre %></td>
+                        <td><%= estudio.apellido %></td>
+                        <td><%= estudio.fec_estudio %></td>
+                        <td><%= estudio.estado %></td>
+                        <!--<td><%= estudio.tel %></td>-->
+                        <td>
+                            <div style="float:left">
+                                <a href='/estudios/editar/<%= estudio.id %>'>Editar</a> &nbsp; 
+                            </div>
+                        </td>
+                    </tr>
+                <% }) %>
+            <% } %>
+        </table>
+    </div>  
+    <div class="main-flex-w3ls-sectns">
+        <% if (data[0].estado == "EN ESPERA") { %>
+            <p> TODAVIA NO SE DIAGNOSTICO</p>
+        <% } else if (data[0].estado == "DIAGNOSTICADO") {%>
+            <p>YA ESTA DIAGNOSTICADO</p>    
+        <% } %>
+    </div>
+    <!-- MOSTRAR BOTONES ACORDE A LA DISPONIBILIDAD DEL DIAGNOSTICO -->
+    <div class="main-flex-w3ls-sectns">
+        <!-- BOTONES FINALES -->
+        <% if (data[0].estado == "DIAGNOSTICADO") { %>
+        <a href='/consultas/pagar'>PAGAR</a>
+        <%} %>
+    </div>
+    <% if (data[0].estado == "DIAGNOSTICADO") { %>
+    <div class="register-form-w3layouts">
+        <form action="/consultas/pagar" method="get" name="form">
+            <input type="hidden" name="cod" id="cod" value="<%= data[0].cod %>" readonly/>
+            <div class="clear"></div>
+            <input type="submit" name="Submit" value="PAGAR ESTUDIO"/></td>
+        </form>
+    </div>
+    <%} %>
+    <div class="clear"></div>
+</div>
+
+<!-- FIN CUERPO -->
+
+<!--INCLUI FOOTER-->
+<%- include ../layouts/footer.ejs %>

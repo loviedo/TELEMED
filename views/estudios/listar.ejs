@@ -1,0 +1,68 @@
+<!--
+including header content which is common for all pages
+-->
+<%- include ../layouts/header.ejs %>
+ 
+<% if (messages.error) { %>
+    <p style="color:red"><%- messages.error %></p>
+<% } %>
+ 
+<% if (messages.success) { %>
+    <p style="color:green"><%- messages.success %></p>
+<% } %>    
+
+<!--PEQUENHO ESTILO-->
+<style>
+    .texto { color: #FFFFFF; font-size: 12pt; }
+    .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {background-color: lightslategrey;}
+</style>
+
+<h1>Listado de Estudios</h1>
+<div class="register-form-w3layouts">
+
+    <!--<h4>Seleccione accion:</h4>  -->
+    <table class="table table-hover" width='80%' border=0>
+            <tr style='text-align:center; background-color:rgba(204, 204, 204, 0.801)'>
+                <th>Nro</th>
+                <th>CODIGO</th>
+                <!--<th>C.I.</th>-->
+                <th>NOMBRE</th>
+                <th>APELLIDO</th>
+                <th>Fecha estudio</th>
+                <th>ESTADO</th>
+                <!--<th>TELEFONO</th>-->
+                <th>Acciones</th>
+            </tr>
+            <!-- loop para listar los datos -->
+            <% if(data) { %>
+            <% data.forEach(function(estudio){ %>
+                <tr>
+                    <td class="texto"><%= estudio.id %></td>
+                    <td class="texto"><%= estudio.cod %></td>
+                    <!--<td><%= estudio.ci %></td>-->
+                    <td class="texto"><%= estudio.nombre %></td>
+                    <td class="texto"><%= estudio.apellido %></td>
+                    <td class="texto"><%= estudio.fec_estudio %></td>
+                    <td class="texto"><%= estudio.estado %></td>
+                    <!--<td><%= estudio.tel %></td>-->
+                    <td class="texto">
+                        <div style="float:left">
+                            <a href='/estudios/editar/<%= estudio.id %>'>Editar</a> &nbsp; 
+                            <!-- EL ELIMINAR SOLO LO PUEDE HACER EL ADMIN -- VER EL CODIGO PARA MOSTAR SOLO SI ES ADMIN                     
+                            <form method="post" action="/estudios/eliminar/<%= estudio.cod %>" style="float:right">
+                                <input type="submit" name="delete" value='Delete' onClick="return confirm('Seguro que desea borrar el estudio?')" />
+                                <input type="hidden" name="_method" value="Eliminar" />
+                            </form>-->
+                        </div>
+                    </td>
+                </tr>
+            <% }) %>
+            <% } %>
+        </table>
+</div>
+
+
+<!--
+including footer content which is common for all pages
+-->
+<%- include ../layouts/footer.ejs %>

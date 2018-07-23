@@ -1,0 +1,34 @@
+<!-- HEADER -->
+<%- include ../layouts/header.ejs %>    
+        
+<% if (messages.error) { %>
+    <p style="color:red"><%- messages.error %></p>
+<% } %>
+ 
+<% if (messages.success) { %>
+    <p style="color:green"><%- messages.success %></p>-->
+<% } %>
+
+<!-- INICIO CUERPO -->
+<h1>Edicion de diagnostico de Estudio</h1>
+<div class="register-form-w3layouts">
+    <form role='form', method='post' action="/consultas/consultar/")>
+        <div >
+            <label>CÓDIGO</label>
+            <input type="text" name="cod" id="cod" placeholder="INGRESAR CODIGO DE 6 DIGITOS" >
+        </div>
+        <div class="clear">&NewLine;</div>
+        <div>        
+            <button type="submit" class="btn btn-primary">Buscar</button>
+            <a href="/estudios" class="btn btn-primary">Atras</a>
+        </div>
+    </form>
+</div>
+
+
+
+
+<!-- FIN CUERPO -->
+
+<!--INCLUI FOOTER-->
+<%- include ../layouts/footer.ejs %>

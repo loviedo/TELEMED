@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>TELEMED</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="application/x-javascript">
+            addEventListener("load", function () {
+                setTimeout(hideURLbar, 0);
+            }, false);
+
+            function hideURLbar() {
+                window.scrollTo(0, 1);
+            }
+        </script>
+        
+        <!-- //Meta tags -->
+        <!-- Stylesheet -->
+        <link rel="stylesheet" type='text/css' href="/css/jquery-ui.css" media='all'/>
+        <link rel='stylesheet' type='text/css' href="/css/style.css" media="all"/>
+        <!-- //Stylesheet -->
+        <!--fonts-->
+        <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600" rel="stylesheet">
+        <!--//fonts-->
+    </head>
+    <title><%= title %></title>
+    <body>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">TELEMED</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/">Home</a></li>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Estudios<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                        <li><a href="/estudios/add">Agregar</a></li>
+                        <li><a href="/estudios/">Listar</a></li><!-- RECORDAR QUE EN EL HOME NOMAS SE LISTA-->
+                        <li><a href="/consultas/">Consultar</a></li><!-- RUTEAMOS EN CONSULTAS-->
+                        </ul>
+                    </li>
+                    <li><a href="#">DASHBOARD</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                <li><a href="/login"><span class="glyphicon glyphicon-user"></span>INGRESAR</a></li>
+                <li><a href="/signup"><span class="glyphicon glyphicon-log-in"></span>REGISTRARSE</a></li>
+                </ul>
+            </div>
+        </nav>

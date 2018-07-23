@@ -1,0 +1,35 @@
+<!--including header content which is common for all pages-->
+<%- include ../layouts/header.ejs %>    
+ 
+<% if (messages.error) { %>
+    <p style="color:red"><%- messages.error %></p>
+<% } %>
+ 
+<% if (messages.success) { %>
+    <!--<p style="color:green"><%- messages.success %></p>-->
+    <!--NO MOSTRAMOS ACA EL MENSAJE-->
+<% } %>
+
+    <div class="clear"></div>
+    <h1>ESTUDIO CARGADO EXITOSAMENTE</h1>
+    <div class="register-form-w3layouts">
+        <h3 class="sub-heading-agileits">INSTRUCCIONES</h3>
+        <div class="field-agileinfo-spc form-w3-agile-text1">
+            <h6>El estudio se cargo exitosamente, Debe guardar el archivo generado, contiene la informacion necesaria sobre su estudio</h6>
+        </div>
+        <div class="field-agileinfo-spc form-w3-agile-text1">
+            <h6>Puede verificar el estado de su estudio en: </h6> 
+            <a href="https://www.telemed.com.py/consultas/">TELEMED CONSULTAS</a>
+        </div>
+        <div class="field-agileinfo-spc form-w3-agile-text1">
+            <h6>Se cargo exitamente! <%- messages.success %></h6>
+        </div>
+        <div>   
+            <h6>Favor descargar su comprobante: </h6>     
+            <a href="/estudios/final" class="btn btn-primary">Descargar Comprobante de Estudio</a>
+        </div>
+    </div>        
+
+
+<!--including footer content which is common for all pages-->
+<%- include ../layouts/footer.ejs %>
