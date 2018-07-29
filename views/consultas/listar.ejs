@@ -13,7 +13,7 @@
 <!-- LISTAR INFORMACION RECUPERADA -->
 <h1>Informacion del estudio</h1>
 <!-- input hidden con el codigo del estudio para descargar-->
-<input type="input" name="cod" id="cod" value="<%= data[0].cod %>" readonly/>
+<!--<input type="input" name="cod" id="cod" value="<%= data[0].cod %>" readonly/>-->
 <div class="register-form-w3layouts">
     <div class="main-flex-w3ls-sectns">
         <table class="table table-hover" width='80%' border=0>
@@ -64,18 +64,18 @@
         <a href='/consultas/pagar'>PAGAR</a>
         <%} %>
     </div>
-    <% if (data[0].estado == "DIAGNOSTICADO") { %>
-    <div class="register-form-w3layouts">
-        <form action="/consultas/pagar" method="get" name="form">
-            <input type="hidden" name="cod" id="cod" value="<%= data[0].cod %>" readonly/>
-            <div class="clear"></div>
+    <form action="/consultas/pagar" method="get" name="form">
+        <input type="hidden" name="cod" id="cod" value="<%= data[0].cod %>" readonly/>
+        <div class="clear"></div>
+        <% if (data[0].estado == "DIAGNOSTICADO") { %>
             <input type="submit" name="Submit" value="PAGAR ESTUDIO"/></td>
-        </form>
-    </div>
-    <%} %>
+        <%} %>
+        <% if (data[0].estado == "PAGADO") { %>
+            <input type="submit" name="Submit" value="DESCARGAR ESTUDIO"/></td>
+        <%} %>
+    </form>
     <div class="clear"></div>
 </div>
-
 <!-- FIN CUERPO -->
 
 <!--INCLUI FOOTER-->

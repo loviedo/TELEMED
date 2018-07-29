@@ -1,0 +1,45 @@
+<!-- HEADER -->
+<%- include ../layouts/header.ejs %>    
+        
+<% if (messages.error) { %>
+    <p style="color:red"><%- messages.error %></p>
+<% } %>
+ 
+<% if (messages.success) { %>
+    <p style="color:green"><%- messages.success %></p>
+<% } %>
+<!--PEQUENHO ESTILO-->
+<style>
+    .texto { color: #FFFFFF; font-size: 12pt; }
+</style>
+
+<!-- -->
+<div class="register-form-w3layouts">
+    <h1>PREGUNTAS FRECUENTES</h1> 
+</div>
+
+<div ><h2 class="text-center"> - </h2><br></div><!--separador-->
+
+<div class="register-form-w3layouts">
+    <div class="row">
+        <h2 class="texto">CUÁL ES EL COSTO DE LOS ESTUDIOS?</h2><br>
+        <h4 class="texto">El costo de los estudio es el siguiente:</h4>
+        <p class="texto">TOMOGRAFÍA: Gs. 50.000</p>
+        <p class="texto">RAYOS X: Gs. 10.000</p>    
+        <p class="texto">RESONANCIA MAGNÉTICA: Gs. 80.000</p>
+        <p class="texto">CONTRASTE: + Gs. 30.000</p>
+    </div>
+</div>
+<div ><h2 class="texto"> - </h2><br></div><!--separador-->
+<div class="register-form-w3layouts">
+    <div class="row">
+        <p class="texto">Cualquier consulta que tenga puede llamar al: 000 000 000 </p>
+    </div>
+</div>
+<div ><h2 class="texto"> - </h2><br></div><!--separador-->
+
+
+<!-- -->
+
+<!--INCLUI FOOTER-->
+<%- include ../layouts/footer.ejs %>

@@ -39,6 +39,13 @@ app.get('/', function(req, res, next) {
  });
 });
 
+/* RUTEO DE PREGUNTAS FRECUENTES */
+app.get('/faq', function(req, res, next) {
+	req.getConnection(function(err,connection){
+		res.render('estudios/faq',{title:"TELEMED"});
+	});
+});
+
 /* llamamos desde /consultas/consultar */
 app.get('/pagar', function(req, res, next) {
 	req.getConnection(function(err,connection){
@@ -116,7 +123,7 @@ app.post('/upload', function(req, res) {
 
 
 /* RUTEO PARA INSERTAR ESTUDIO */
-app.post('/add', /*upload.single('foo'),*/ function(req, res, next) {
+app.post('/add',  function(req, res, next) {
     //VALIDACIONES//
     /*
 	req.assert('nombre', 'Favor Ingresar Nombre').notEmpty().isAlphanumeric();//validar nombre
