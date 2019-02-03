@@ -70,8 +70,9 @@ app.get('/final', function(req, res, next) {
 		var query = connection.query('SELECT id,cod,ci,nombre,apellido,fec_estudio,tel, estado FROM estudio',function(err,rows)
 		{
 			if(err){
-			var errornya  = ("Error : %s ",err );   
-			req.flash('error', errornya);   }
+				var errornya  = ("Error : %s ",err);   
+				req.flash('error', errornya);   
+			}
 
 			//DESCARGAR PDF CON DATOS DEL ESTUDIO
 			var file = path.resolve("./files/"+COD_EST+".pdf");
@@ -289,7 +290,7 @@ app.post('/add',  function(req, res, next) {
 	}
 });
 
-//get de agregado
+//GET DE AGREGADO
 app.get('/add', function(req, res, next) {
 	res.render(	'estudios/add', 
 	{ 
